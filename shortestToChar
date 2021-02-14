@@ -1,0 +1,18 @@
+class Solution:
+    def shortestToChar(self, s: str, c: str) -> List[int]:
+        N = len(s)
+        left,right,output = [None]*N,[None]*N,[None]*N
+        temp = float("inf")
+        for i in range(N):
+            if s[i] == c:
+                temp = 0
+            left[i] = temp
+            temp += 1
+        for i in range(N-1,-1,-1):
+            if s[i] == c:
+                temp = 0
+            right[i] = temp
+            temp += 1
+        for i in range(N):
+            output[i] = min(left[i],right[i])
+        return output
