@@ -1,0 +1,16 @@
+class Solution {
+public:
+    int r(int num,int cnt){
+        if(num==1)
+            return cnt+1;
+        if(num%2==0)
+        return 1 + r(num/2,cnt);
+        return 1 + r((num-1)/2,cnt+1);
+    }
+    int numberOfSteps (int num) {
+        if(num==0) return 0;
+        int cnt = 0;
+        cnt = r(num,cnt);
+        return cnt;
+    }
+};
